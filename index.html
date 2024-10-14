@@ -6,9 +6,13 @@
     <title>Avaliação</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-        .container {
+        .container, .logo-qentrega {
         width: 50vw !important;}
-        .logo-qentrega {width: 50vw;}
+
+        @media screen and (max-width: 800px) {
+            .container, .logo-qentrega {
+                width: 100vw !important;}
+        }
     </style>
 </head>
 <body class="bg-light d-flex flex-column justify-content-center align-items-center vh-100">
@@ -20,11 +24,11 @@
                 <div class="mb-3">
                     <p>Sua solicitação foi solucionada?</p>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="solved" value="sim" onclick="toggleQuestions(true)" required>
+                        <input class="form-check-input" type="radio" name="solved" value="sim" onclick="toggleReason(false)" required>
                         <label class="form-check-label">Sim</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="solved" value="nao" onclick="toggleQuestions(false)">
+                        <input class="form-check-input" type="radio" name="solved" value="nao" onclick="toggleReason(true)">
                         <label class="form-check-label">Não</label>
                     </div>
                 </div>
@@ -34,77 +38,75 @@
                     <textarea id="reason" name="reason" class="form-control"></textarea>
                 </div>
 
-                <div id="satisfactionQuestions" class="d-none">
-                    <div class="mb-3">
-                        <p>De 1 a 10, como você avalia nosso atendimento? <br/> 1 não satisfeito e 10 muito satisfeito</p>
-                        <div class="btn-group" role="group" aria-label="Avaliação do atendimento">
-                            <!-- Gerando botões de 1 a 10 -->
-                            <input type="radio" class="btn-check" name="serviceRating" id="serviceRating1" value="1" required>
-                            <label class="btn btn-outline-primary" for="serviceRating1">1</label>
+                <div class="mb-3">
+                    <p>De 1 a 10, como você avalia nosso atendimento?</p>
+                    <div class="btn-group" role="group" aria-label="Avaliação do atendimento">
+                        <!-- Botões de 1 a 10 -->
+                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating1" value="1" required>
+                        <label class="btn btn-outline-primary" for="serviceRating1">1</label>
 
-                            <input type="radio" class="btn-check" name="serviceRating" id="serviceRating2" value="2">
-                            <label class="btn btn-outline-primary" for="serviceRating2">2</label>
+                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating2" value="2">
+                        <label class="btn btn-outline-primary" for="serviceRating2">2</label>
 
-                            <input type="radio" class="btn-check" name="serviceRating" id="serviceRating3" value="3">
-                            <label class="btn btn-outline-primary" for="serviceRating3">3</label>
+                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating3" value="3">
+                        <label class="btn btn-outline-primary" for="serviceRating3">3</label>
 
-                            <input type="radio" class="btn-check" name="serviceRating" id="serviceRating4" value="4">
-                            <label class="btn btn-outline-primary" for="serviceRating4">4</label>
+                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating4" value="4">
+                        <label class="btn btn-outline-primary" for="serviceRating4">4</label>
 
-                            <input type="radio" class="btn-check" name="serviceRating" id="serviceRating5" value="5">
-                            <label class="btn btn-outline-primary" for="serviceRating5">5</label>
+                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating5" value="5">
+                        <label class="btn btn-outline-primary" for="serviceRating5">5</label>
 
-                            <input type="radio" class="btn-check" name="serviceRating" id="serviceRating6" value="6">
-                            <label class="btn btn-outline-primary" for="serviceRating6">6</label>
+                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating6" value="6">
+                        <label class="btn btn-outline-primary" for="serviceRating6">6</label>
 
-                            <input type="radio" class="btn-check" name="serviceRating" id="serviceRating7" value="7">
-                            <label class="btn btn-outline-primary" for="serviceRating7">7</label>
+                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating7" value="7">
+                        <label class="btn btn-outline-primary" for="serviceRating7">7</label>
 
-                            <input type="radio" class="btn-check" name="serviceRating" id="serviceRating8" value="8">
-                            <label class="btn btn-outline-primary" for="serviceRating8">8</label>
+                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating8" value="8">
+                        <label class="btn btn-outline-primary" for="serviceRating8">8</label>
 
-                            <input type="radio" class="btn-check" name="serviceRating" id="serviceRating9" value="9">
-                            <label class="btn btn-outline-primary" for="serviceRating9">9</label>
+                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating9" value="9">
+                        <label class="btn btn-outline-primary" for="serviceRating9">9</label>
 
-                            <input type="radio" class="btn-check" name="serviceRating" id="serviceRating10" value="10">
-                            <label class="btn btn-outline-primary" for="serviceRating10">10</label>
-                        </div>
+                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating10" value="10">
+                        <label class="btn btn-outline-primary" for="serviceRating10">10</label>
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <p>De 1 a 10, como você avalia nosso serviço de entrega? <br/> 1 não satisfeito e 10 muito satisfeito</p>
-                        <div class="btn-group" role="group" aria-label="Avaliação do serviço de entrega">
-                            <!-- Gerando botões de 1 a 10 -->
-                            <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating1" value="1" required>
-                            <label class="btn btn-outline-secondary" for="deliveryRating1">1</label>
+                <div class="mb-3">
+                    <p>De 1 a 10, como você avalia nosso serviço de entrega?</p>
+                    <div class="btn-group" role="group" aria-label="Avaliação do serviço de entrega">
+                        <!-- Botões de 1 a 10 -->
+                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating1" value="1" required>
+                        <label class="btn btn-outline-primary" for="deliveryRating1">1</label>
 
-                            <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating2" value="2">
-                            <label class="btn btn-outline-secondary" for="deliveryRating2">2</label>
+                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating2" value="2">
+                        <label class="btn btn-outline-primary" for="deliveryRating2">2</label>
 
-                            <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating3" value="3">
-                            <label class="btn btn-outline-secondary" for="deliveryRating3">3</label>
+                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating3" value="3">
+                        <label class="btn btn-outline-primary" for="deliveryRating3">3</label>
 
-                            <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating4" value="4">
-                            <label class="btn btn-outline-secondary" for="deliveryRating4">4</label>
+                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating4" value="4">
+                        <label class="btn btn-outline-primary" for="deliveryRating4">4</label>
 
-                            <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating5" value="5">
-                            <label class="btn btn-outline-secondary" for="deliveryRating5">5</label>
+                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating5" value="5">
+                        <label class="btn btn-outline-primary" for="deliveryRating5">5</label>
 
-                            <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating6" value="6">
-                            <label class="btn btn-outline-secondary" for="deliveryRating6">6</label>
+                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating6" value="6">
+                        <label class="btn btn-outline-primary" for="deliveryRating6">6</label>
 
-                            <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating7" value="7">
-                            <label class="btn btn-outline-secondary" for="deliveryRating7">7</label>
+                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating7" value="7">
+                        <label class="btn btn-outline-primary" for="deliveryRating7">7</label>
+                        
+                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating8" value="8">
+                        <label class="btn btn-outline-primary" for="deliveryRating8">8</label>
 
-                            <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating8" value="8">
-                            <label class="btn btn-outline-secondary" for="deliveryRating8">8</label>
+                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating9" value="9">
+                        <label class="btn btn-outline-primary" for="deliveryRating9">9</label>
 
-                            <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating9" value="9">
-                            <label class="btn btn-outline-secondary" for="deliveryRating9">9</label>
-
-                            <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating10" value="10">
-                            <label class="btn btn-outline-secondary" for="deliveryRating10">10</label>
-                        </div>
+                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating10" value="10">
+                        <label class="btn btn-outline-primary" for="deliveryRating10">10</label>
                     </div>
                 </div>
 
@@ -113,18 +115,14 @@
         </div>
     </div>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
-        function toggleQuestions(isSolved) {
+        function toggleReason(show) {
             const notSolvedReason = document.getElementById("notSolvedReason");
-            const satisfactionQuestions = document.getElementById("satisfactionQuestions");
-
-            if (isSolved) {
-                notSolvedReason.classList.add("d-none");
-                satisfactionQuestions.classList.remove("d-none");
-            } else {
+            if (show) {
                 notSolvedReason.classList.remove("d-none");
-                satisfactionQuestions.classList.add("d-none");
+            } else {
+                notSolvedReason.classList.add("d-none");
             }
         }
 
