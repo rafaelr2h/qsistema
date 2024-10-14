@@ -1,0 +1,24 @@
+.container,
+.logo-qentrega {
+    width: 50vw !important;
+}
+
+.icon {
+    font-size: 5rem !important;
+}
+
+.card-sim {
+    color: #169179;
+}
+
+.card-nao {
+    color: #E67E23;
+}
+
+@media screen and (max-width: 800px) {
+
+    .container,
+    .logo-qentrega {
+        width: 100vw !important;
+    }
+}
