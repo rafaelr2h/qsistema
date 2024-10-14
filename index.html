@@ -1,157 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Avaliação</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-light d-flex flex-column justify-content-center align-items-center vh-100">
-    <img src="img/Logo_Qentrega.svg" alt="logo-qentrega" srcset="" class="logo-qentrega p-4">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body
+    class="bg-light d-flex flex-column justify-content-center align-items-center"
+  >
+  <header>
+      <img
+        src="img/Logo_Qentrega.svg"
+        alt="logo-qentrega"
+        srcset=""
+        class="logo-qentrega p-4"
+      />
+  </header>
     <div class="container">
-        <div class="card p-4">
-            <h2 class="mb-4">Avaliação</h2>
-            <form id="evaluationForm">
-                <div class="mb-3">
+      <div class="card p-4">
+        <h2 class="mb-4">Avaliação</h2>
+        <form id="evaluationForm">
+          <div class="mb-3">
+            <p>
+              Sua solicitação foi solucionada?
+              <span class="text-primary fw-bold">*</span>
+            </p>
 
-                    <p>Sua solicitação foi solucionada?</p>
-                    
-                    <div class="d-flex">
-                        <div class="card m-1 text-center card-sim">
-                            <div class="card-header">
-                                <span class="material-symbols-rounded icon">
-                                    sentiment_excited
-                                </span>
-                            </div>
-                            <div class="card-body fw-bold">            
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="solved" value="sim" onclick="toggleReason(false)" required>
-                                    <label class="form-check-label">Sim</label>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="card m-1 text-center card-nao">
-                            <div class="card-header">
-                                <span class="material-symbols-rounded icon">
-                                    sentiment_frustrated
-                                </span>
-                            </div>
-                            <div class="card-body fw-bold">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="solved" value="nao" onclick="toggleReason(true)">
-                                    <label class="form-check-label">Não</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+            <div class="d-flex">
+              <div class="card m-1 text-center card-sim">
+                <div class="card-header">
+                  <span class="material-symbols-rounded icon">
+                    sentiment_satisfied
+                  </span>
                 </div>
-
-                <div id="notSolvedReason" class="mb-3 d-none">
-                    <label for="reason" class="form-label">Nos conte o por quê a solicitação não foi resolvida:</label>
-                    <textarea id="reason" name="reason" class="form-control"></textarea>
+                <div class="card-body fw-bold">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="solved"
+                      value="sim"
+                      onclick="toggleReason(false)"
+                      required
+                    />
+                    <label class="form-check-label">Sim</label>
+                  </div>
                 </div>
+              </div>
 
-                <div class="mb-3">
-                    <p>De 1 a 10, como você avalia nosso <b>atendimento</b>?<br> 
-                        <b>1</b> não satisfeito e <b>10</b> muito satisfeito
-                    </p>
-                    <div class="btn-group" role="group" aria-label="Avaliação do atendimento">
-                        <!-- Botões de 1 a 10 -->
-                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating1" value="1" required>
-                        <label class="btn btn-outline-primary" for="serviceRating1">1</label>
-
-                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating2" value="2">
-                        <label class="btn btn-outline-primary" for="serviceRating2">2</label>
-
-                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating3" value="3">
-                        <label class="btn btn-outline-primary" for="serviceRating3">3</label>
-
-                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating4" value="4">
-                        <label class="btn btn-outline-primary" for="serviceRating4">4</label>
-
-                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating5" value="5">
-                        <label class="btn btn-outline-primary" for="serviceRating5">5</label>
-
-                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating6" value="6">
-                        <label class="btn btn-outline-primary" for="serviceRating6">6</label>
-
-                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating7" value="7">
-                        <label class="btn btn-outline-primary" for="serviceRating7">7</label>
-
-                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating8" value="8">
-                        <label class="btn btn-outline-primary" for="serviceRating8">8</label>
-
-                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating9" value="9">
-                        <label class="btn btn-outline-primary" for="serviceRating9">9</label>
-
-                        <input type="radio" class="btn-check" name="serviceRating" id="serviceRating10" value="10">
-                        <label class="btn btn-outline-primary" for="serviceRating10">10</label>
-                    </div>
+              <div class="card m-1 text-center card-nao">
+                <div class="card-header">
+                  <span class="material-symbols-rounded icon">
+                    sentiment_dissatisfied
+                  </span>
                 </div>
-
-                <div class="mb-3">
-                    <p>De 1 a 10, como você avalia nosso <b>serviço de entrega</b>?<br> 
-                        <b>1</b> não satisfeito e <b>10</b> muito satisfeito
-                    </p>
-                    <div class="btn-group" role="group" aria-label="Avaliação do serviço de entrega">
-                        <!-- Botões de 1 a 10 -->
-                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating1" value="1" required>
-                        <label class="btn btn-outline-primary" for="deliveryRating1">1</label>
-
-                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating2" value="2">
-                        <label class="btn btn-outline-primary" for="deliveryRating2">2</label>
-
-                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating3" value="3">
-                        <label class="btn btn-outline-primary" for="deliveryRating3">3</label>
-
-                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating4" value="4">
-                        <label class="btn btn-outline-primary" for="deliveryRating4">4</label>
-
-                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating5" value="5">
-                        <label class="btn btn-outline-primary" for="deliveryRating5">5</label>
-
-                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating6" value="6">
-                        <label class="btn btn-outline-primary" for="deliveryRating6">6</label>
-
-                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating7" value="7">
-                        <label class="btn btn-outline-primary" for="deliveryRating7">7</label>
-                        
-                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating8" value="8">
-                        <label class="btn btn-outline-primary" for="deliveryRating8">8</label>
-
-                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating9" value="9">
-                        <label class="btn btn-outline-primary" for="deliveryRating9">9</label>
-
-                        <input type="radio" class="btn-check" name="deliveryRating" id="deliveryRating10" value="10">
-                        <label class="btn btn-outline-primary" for="deliveryRating10">10</label>
-                    </div>
+                <div class="card-body fw-bold">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="solved"
+                      value="nao"
+                      onclick="toggleReason(true)"
+                    />
+                    <label class="form-check-label">Não</label>
+                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <button type="submit" class="btn btn-primary mt-3">Enviar Avaliação</button>
-            </form>
-        </div>
+          <div id="notSolvedReason" class="mb-3 d-none">
+            <label for="reason" class="form-label"
+              >Nos conte o porquê a solicitação não foi resolvida:
+              <span class="text-primary fw-bold">*</span></label
+            >
+            <textarea id="reason" name="reason" class="form-control"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <p>
+              De 1 a 10, como você avalia nosso <b>atendimento</b>?
+              <span class="text-primary fw-bold">*</span><br />
+              <b>1</b> não satisfeito e <b>10</b> muito satisfeito
+            </p>
+            <div
+              id="serviceRatingContainer"
+              class="btn-group"
+              role="group"
+              aria-label="Avaliação do atendimento"
+            ></div>
+          </div>
+
+          <div class="mb-3">
+            <p>
+              De 1 a 10, como você avalia nosso <b>serviço de entrega</b>?
+              <span class="text-primary fw-bold">*</span><br />
+              <b>1</b> não satisfeito e <b>10</b> muito satisfeito
+            </p>
+            <div
+              id="deliveryRatingContainer"
+              class="btn-group"
+              role="group"
+              aria-label="Avaliação do serviço de entrega"
+            ></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary mt-3">
+            Enviar Avaliação
+          </button>
+        </form>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script>
-        function toggleReason(show) {
-            const notSolvedReason = document.getElementById("notSolvedReason");
-            if (show) {
-                notSolvedReason.classList.remove("d-none");
-            } else {
-                notSolvedReason.classList.add("d-none");
-            }
-        }
-
-        document.getElementById("evaluationForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            alert("Avaliação enviada com sucesso!");
-        });
-    </script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
 </html>
