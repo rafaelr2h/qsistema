@@ -67,6 +67,8 @@ async function submitForm(event) {
 
         if (response.ok) {
             alert("Avaliação enviada com sucesso!");
+            event.target.reset(); // Limpa todos os campos do formulário
+            toggleReason(false); // Esconde o campo de motivo, caso esteja visível
         } else {
             alert("Falha ao enviar avaliação. Tente novamente.");
         }
@@ -75,6 +77,7 @@ async function submitForm(event) {
         alert("Erro ao enviar a avaliação. Tente novamente.");
     }
 }
+
 
 // Gerar os botões de avaliação ao carregar a página
 document.addEventListener("DOMContentLoaded", function() {
