@@ -56,6 +56,9 @@ async function submitForm(event) {
         deliveryRating
     };
 
+    console.log(data);
+    
+
     try {
         const response = await fetch("http://localhost:3000/avaliacoes", {
             method: "POST",

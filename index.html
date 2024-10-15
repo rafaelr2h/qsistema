@@ -46,16 +46,17 @@
                   </span>
                 </div>
                 <div class="card-body fw-bold">
-                  <div class="form-check form-check-inline">
+                  <div class="form-check p-1">
                     <input
-                      class="form-check-input"
+                      class="form-check-input btn-check"
                       type="radio"
                       name="solved"
                       value="sim"
                       onclick="toggleReason(false)"
                       required
+                      id="solvedYes"
                     />
-                    <label class="form-check-label">Sim</label>
+                    <label class="form-check-label btn btn-outline-success" for="solvedYes">Sim</label>
                   </div>
                 </div>
               </div>
@@ -67,15 +68,16 @@
                   </span>
                 </div>
                 <div class="card-body fw-bold">
-                  <div class="form-check form-check-inline">
+                  <div class="form-check p-1">
                     <input
-                      class="form-check-input"
+                      class="form-check-input btn-check"
                       type="radio"
                       name="solved"
                       value="nao"
                       onclick="toggleReason(true)"
+                      id="solvedNo"
                     />
-                    <label class="form-check-label">Não</label>
+                    <label class="form-check-label btn btn-outline-warning" for="solvedNo">Não</label>
                   </div>
                 </div>
               </div>
@@ -94,7 +96,7 @@
             <p>
               De 1 a 10, como você avalia nosso <b>atendimento</b>?
               <span class="text-primary fw-bold">*</span><br />
-              <b>1</b> não satisfeito e <b>10</b> muito satisfeito
+              <i>(<b>1</b> não satisfeito e <b>10</b> muito satisfeito)</i>
             </p>
             <div
               id="serviceRatingContainer"
@@ -106,9 +108,9 @@
 
           <div class="mb-3">
             <p>
-              De 1 a 10, como você avalia nosso <b>serviço de entrega</b>?
+              De 1 a 10, você indicaria o nosso <b>serviço de entrega</b> para um amigo(a)?
               <span class="text-primary fw-bold">*</span><br />
-              <b>1</b> não satisfeito e <b>10</b> muito satisfeito
+              <i>(<b>1</b> não indicaria e <b>10</b> super indicaria)</i>
             </p>
             <div
               id="deliveryRatingContainer"
