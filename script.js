@@ -35,6 +35,29 @@ function toggleReason(show) {
     }
 }
 
+// Função para verificar o tamanho da tela e ajustar a classe
+function handleScreenResize() {
+    const serviceRatingElement = document.getElementById('serviceRatingContainer');
+    const deliveryRatingElement = document.getElementById('deliveryRatingContainer');
+    
+    const isSmallScreen = window.matchMedia('(max-width: 50rem)').matches;
+    
+    if (isSmallScreen) {
+        serviceRatingElement.classList.add('btn-group-sm');
+        deliveryRatingElement.classList.add('btn-group-sm');
+    } else {
+        serviceRatingElement.classList.remove('btn-group-sm');
+        deliveryRatingElement.classList.remove('btn-group-sm');
+    }
+}
+
+// Executa a função quando a página é carregada
+document.addEventListener('DOMContentLoaded', handleScreenResize);
+
+// Escuta os eventos de redimensionamento da janela
+window.addEventListener('resize', handleScreenResize);
+
+
 // Função para coletar os dados do formulário e enviar para o json-server
 async function submitForm(event) {
     event.preventDefault();
