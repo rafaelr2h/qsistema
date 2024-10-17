@@ -18,7 +18,7 @@
   </head>
 
   <body
-    class="bg-light d-flex flex-column justify-content-center align-items-center"
+    class="bg-light d-flex flex-column justify-content-center align-items-center mb-4"
   >
   <header>
       <img
@@ -28,7 +28,7 @@
         class="logo-qentrega p-4"
       />
   </header>
-    <div class="container">
+    <div class="container text-center">
       <div class="card p-4">
         <h2 class="mb-4">Avaliação</h2>
         <form id="evaluationForm">
@@ -38,14 +38,12 @@
               <span class="text-primary fw-bold">*</span>
             </p>
 
-            <div class="d-flex">
+            <div class="d-flex justify-content-center">
               <div class="card m-1 text-center card-sim">
-                <div class="card-header">
-                  <span class="material-symbols-rounded icon">
-                    sentiment_satisfied
-                  </span>
-                </div>
                 <div class="card-body fw-bold">
+                  <span class="material-symbols-rounded icon text-success">
+                    thumb_up
+                  </span>
                   <div class="form-check p-1">
                     <input
                       class="form-check-input btn-check"
@@ -62,12 +60,10 @@
               </div>
 
               <div class="card m-1 text-center card-nao">
-                <div class="card-header">
-                  <span class="material-symbols-rounded icon">
-                    sentiment_dissatisfied
-                  </span>
-                </div>
                 <div class="card-body fw-bold">
+                  <span class="material-symbols-rounded icon text-warning">
+                    thumb_down
+                  </span>
                   <div class="form-check p-1">
                     <input
                       class="form-check-input btn-check"
